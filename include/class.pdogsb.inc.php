@@ -284,6 +284,63 @@ class PdoGsb{
 		}
 		return $lesMois;
 	}
+        
+        /**
+ * Retourne les informations d'une fiche de frais d'un visiteur pour un mois donné
+ 
+ * @param $idvisiteur 
+ * @param $mois sous la forme aaaamm
+ * @return un tableau avec des champs de jointure entre une fiche de frais et la ligne d'état 
+*/
+       public function getLesMoisEnAttente(){
+            $req = "select fichefrais.mois as mois"
+                    . " from fichefrais"
+                    . " where fichefrais.idEtat = 'CL'"
+                    . " order by fichefrais.mois DESC ";
+            $res = PdoGsb::$monPdo->query($req);
+		$lesMois =array();
+		$laLigne = $res->fetch();
+		while($laLigne != null)	{
+			$mois = $laLigne['mois'];
+			$numAnnee =substr( $mois,0,4);
+			$numMois =substr( $mois,4,2);
+			$lesMois["$mois"]=array(
+		     "mois"=>"$mois",
+		    "numAnnee"  => "$numAnnee",
+			"numMois"  => "$numMois"
+             );
+			$laLigne = $res->fetch(); 		
+		}
+		return $lesMois;
+                echo '$lesMois';
+	}
+        
+/**
+ * Retourne les Visiteur qui ont une fiche de frais
+	
+ * @param $idVisiteur
+ * @return un tableau associatif de clé un mois -aaaamm- et de valeurs l'année et le mois correspondant
+ */
+        public function getLesVisiteurs($unMois){
+		$req = "SELECT visiteur.id,visiteur.nom, visiteur.prenom  FROM fichefrais, visiteur WHERE fichefrais.idvisiteur = visiteur.id AND fichefrais.idEtat = 'CL' AND mois=".$unMois."";
+		$res = PdoGsb::$monPdo->query($req);
+		$lesVisiteurs =array();
+		$laLigne = $res->fetch();
+		while($laLigne != null)	{
+                    $id = $laLigne['id'];
+			$nom = $laLigne['nom'];
+			$prenom = $laLigne['prenom'];
+			$lesVisiteurs["$nom"]=array(
+                     "id"=>"$id",
+		     "nom"=>"$nom",
+		     "prenom"  => "$prenom",
+			
+             );
+			$laLigne = $res->fetch(); 		
+		}
+		return $lesVisiteurs;
+	}
+        
 /**
  * Retourne les informations d'une fiche de frais d'un visiteur pour un mois donné
  
@@ -312,5 +369,16 @@ class PdoGsb{
 		where fichefrais.idvisiteur ='$idVisiteur' and fichefrais.mois = '$mois'";
 		PdoGsb::$monPdo->exec($req);
 	}
+        
+                function reportDFraisHorsForfait($idFrais, $dernierMois)
+        {
+            //requete pour mettre a jour le champs
+            $req = "update lignefraishorsforfait"
+                    . " set mois = $dernierMois"
+                    . " where id = $idFrais";
+            
+            //execution de la requete
+            PdoGsb::$monPdo->exec($req);
+        }
 }
 ?>
