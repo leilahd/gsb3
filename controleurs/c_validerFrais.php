@@ -84,6 +84,21 @@ switch($action){
                 
                 //modifie les quantites de frais forfait et retourne sur l'affichage des fiches NOUVEAU CONTROLEUR
                 case 'validerModification':{
+                    
+                   
+                    $moisASelectionner = $_SESSION['unMois'];
+                    $visiteurASelectionner = $_SESSION['unVisiteur']; 
+                    
+                    $lesFraisHorsForfait = $pdo->getLesFraisHorsForfait($visiteurASelectionner,$moisASelectionner);
+                    $lesFraisForfait= $pdo->getLesFraisForfait($visiteurASelectionner,$moisASelectionner);
+                    $lesInfosFicheFrais = $pdo->getLesInfosFicheFrais($visiteurASelectionner,$moisASelectionner);
+                    $numAnnee =substr( $moisASelectionner,0,4);
+                    $numMois =substr( $moisASelectionner,4,2);
+                    $libEtat = $lesInfosFicheFrais['libEtat'];
+                    $montantValide = $lesInfosFicheFrais['montantValide'];
+                    $nbJustificatifs = $lesInfosFicheFrais['nbJustificatifs'];
+                    $dateModif =  $lesInfosFicheFrais['dateModif'];
+                    $dateModif =  dateAnglaisVersFrancais($dateModif);
 
                     //recuperation des variables session
                     $moisASelectionner = $_REQUEST['unMois'];
@@ -97,7 +112,9 @@ switch($action){
                     //liste des en-têtes de réponse du script courant
                    //var_dump(headers_list());
                     //redirection
-                    header('Location: index.php?uc=validerFrais&action=voirEtatFrais&lstVisiteur='.$visiteurASelectionner.'&mois='.$moisASelectionner);
+                    include("vues/v_etatFraisC.php");
+              //     header('Location:index.php?uc=validerFrais&action=voirEtatFrais');
+                 //   exit();
                 break;}
                 
                 //reporte le frais hors forfait au mois suivant
