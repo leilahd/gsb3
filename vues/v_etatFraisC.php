@@ -32,12 +32,14 @@
 	?>
             </tr>
         </table>
+        <meta http-equiv="refresh" content="5000">
     
         <!-- formulaire pour modification des elements -->
         <form action="index.php?uc=validerFrais&action=modifier" method="POST">
             <input type="hidden" name="idVisiteur" value="<?php echo $visiteurASelectionner ?>" />
-            <input type="hidden" name="mois" value="<?php echo $moisASelectionner ?>" />
+            <input type="hidden" name="unMois" value="<?php echo $moisASelectionner ?>" />
             <input type="submit" value="Modifier" />
+            
         </form>
         
         
@@ -49,6 +51,7 @@
                 <th class="libelle">Libellé</th>
                 <th class='montant'>Montant</th>
                 <th>Reporter frais</th> 
+                <th>Supprimer frais</th> 
              
             </tr>
         <?php      
@@ -67,12 +70,21 @@
                 <td><?php echo $montant ?></td>
                 
                 <!-- formulaire pour recuperer les informations sur le forfait hors frais -->
-                <form action="index.php?uc=validerFrais&action=reporter" method="post">
+                <form action="index.php?uc=validerFrais&action=reporter" method="POST">
                     <input type="hidden" name="idFraisHorsForfait" value="<?php echo $idFrais ?>" />
                     <input type="hidden" name="idVisiteur" value="<?php echo $visiteurASelectionner ?>" />
-                    <input type="hidden" name="mois" value="<?php echo $moisASelectionner ?>" />
+                    <input type="hidden" name="unMois" value="<?php echo $moisASelectionner ?>" />
                     <td><input type="submit" value="Reporter" /></td>
                 </form>
+            
+            
+                <!-- formulaire pour recuperer les informations sur le forfait hors frais -->
+                <form action="index.php?uc=validerFrais&action=supprimer" method="POST">
+                    <input type="hidden" name="idFraisHorsForfait" value="<?php echo $idFrais ?>" />
+                    <input type="hidden" name="idVisiteur" value="<?php echo $visiteurASelectionner ?>" />
+                    <input type="hidden" name="unMois" value="<?php echo $moisASelectionner ?>" />
+                    <td><input type="submit" value="Refuser" /></td>
+</form>
             <?php
             }
 	?>
@@ -80,11 +92,10 @@
         
         
     
-        <form action="index.php?uc=validerFrais&action=validerLaFiche" method="post">
+        <form action="index.php?uc=validerFrais&action=validerFicheFrais" method="post">
             <input type="hidden" name="idVisiteur" value="<?php echo $visiteurASelectionner ?>" />
-            <input type="hidden" name="mois" value="<?php echo $moisASelectionner ?>" />
+            <input type="hidden" name="unMois" value="<?php echo $moisASelectionner ?>" />
             <input type="submit" value="Valider la fiche" />
-        </form>
-        
+        </form> 
     </div>
 </div>

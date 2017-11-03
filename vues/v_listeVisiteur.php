@@ -2,12 +2,13 @@
       <h2>Mes fiches de frais</h2>
       <h3>Visiteurs à sélectionner : </h3>
       <form action="index.php?uc=validerFrais&action=voirEtatFrais" method="post">
+          <input type="hidden" name="unMois" value="<?php echo $moisASelectionner ?>" />
       <div class="corpsForm">
          
       <p>
 	 
         <label for="lstVisiteurs" accesskey="n">Visiteurs : </label>
-        <select id="lstVisiteurs" name="lstVisiteurs">
+        <select id="lstVisiteurs" name="lstVisiteur">
             <?php
                         echo " Bonjour";
 			foreach ($lesVisiteurs as $unVisiteur)

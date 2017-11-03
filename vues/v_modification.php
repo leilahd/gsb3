@@ -3,9 +3,9 @@
     
     <!-- formulaire pour recuperer les quantites -->
     <form method="POST"  action="index.php?uc=validerFrais&action=validerModification">
-        <!--unMois et unVisiteur -->
+        <!--unMois et idVisiteur -->
         <input type="hidden" value="<?php echo $moisASelectionner?>" name="unMois" />
-        <input type="hidden" value="<?php echo $visiteurASelectionner?>" name="unVisiteur" />
+        <input type="hidden" value="<?php echo $visiteurASelectionner?>" name="idVisiteur" />
         
         
         <div class="corpsForm">
