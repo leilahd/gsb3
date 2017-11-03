@@ -3,12 +3,12 @@
     </h3>
     <div class="encadre">
     <p>
-        Etat : <?php echo $libEtat?> depuis le <?php echo $dateModif?> <br> Montant validé : <?php echo $montantValide?>
+    <p class="p"> Etat : <?php echo $libEtat?> depuis le <?php echo $dateModif?> <br> Montant validé : <?php echo $montantValide?></p>
               
                      
     </p>
   	<table class="listeLegere">
-  	   <caption>Eléments forfaitisés </caption>
+  	   <caption class="caption">Eléments forfaitisés </caption>
         <tr>
          <?php
          foreach ( $lesFraisForfait as $unFraisForfait ) 
@@ -33,7 +33,7 @@
 		</tr>
     </table>
   	<table class="listeLegere">
-  	   <caption>Descriptif des éléments hors forfait -<?php echo $nbJustificatifs ?> justificatifs reçus -
+  	   <caption class="caption">Descriptif des éléments hors forfait -<?php echo $nbJustificatifs ?> justificatifs reçus -
        </caption>
              <tr>
                 <th class="date">Date</th>

@@ -7,11 +7,8 @@
         <input type="hidden" value="<?php echo $moisASelectionner?>" name="unMois" />
         <input type="hidden" value="<?php echo $visiteurASelectionner?>" name="idVisiteur" />
         
-        
-        <div class="corpsForm">
-          
-            <fieldset>
-                <legend>Eléments forfaitisés</legend>
+        <h3>Eléments forfaitisés</h3>
+        <div class="modif">
                  
         <?php
                 foreach ($lesFraisForfait as $Frais)
@@ -21,17 +18,16 @@
                     $quantiteForfait = $Frais['quantite'];
 	?>
                 <p>
-                    <label for="idFrais"><?php echo $libelle ?></label>
+                    <label class="lab" for="idFrais"><?php echo $libelle ?></label>
                     <input type="text" id="idFrais" name="lesFrais[<?php echo $idFrais?>]" size="10" maxlength="5" value="<?php echo $quantiteForfait?>" >
 		</p>
 	<?php
 		}
 	?>
-            </fieldset>
             
         </div>
           
-        <div class="piedForm">
+        <div class="modif2">
             <p>
                 <input id="ok" type="submit" value="Valider" size="20" />
                 <input id="annuler" type="reset" value="Effacer" size="20" />

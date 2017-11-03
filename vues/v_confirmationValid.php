@@ -1,7 +1,8 @@
-<h3>Confirmation de validation : </h3>
+
 <div id='contenu'>
+    <h3>Confirmation de validation : </h3>
     <div class="encadre">
-        <p>
+        <p class="p">
             Fiche Enregistée <?php echo $numMois ?><?php echo $numAnnee ?>
         </p>
         

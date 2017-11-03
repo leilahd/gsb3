@@ -1,6 +1,6 @@
 
 <?php
-include("vues/v_sommaireComptable.php");
+include("vues/v_sommaireComptable2.php");
 $idComptable = $_SESSION['idComptable'];
 $mois = getMois(date("d/m/Y"));
 $numAnnee =substr( $mois,0,4);

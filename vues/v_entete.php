@@ -10,6 +10,9 @@
   <body>
     <div id="page">
       <div id="entete">
-        <img src="./images/logo.jpg" id="logoGSB" alt="Laboratoire Galaxy-Swiss Bourdin" title="Laboratoire Galaxy-Swiss Bourdin" />
+        <img src="./images/logoGSB.png" id="logoGSB" alt="Laboratoire Galaxy-Swiss Bourdin" title="Laboratoire Galaxy-Swiss Bourdin" />
         <h1>Suivi du remboursement des frais</h1>
       </div>
+    
+  
+         

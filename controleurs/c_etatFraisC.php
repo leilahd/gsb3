@@ -1,5 +1,5 @@
 <?php
-include("vues/v_sommaireComptable.php");
+include("vues/v_sommaireComptable2.php");
 $action = $_REQUEST['action'];
 $idComptable = $_SESSION['idComptable'];
 $select= $_POST['lstVisiteur'];

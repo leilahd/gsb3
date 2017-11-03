@@ -1,11 +1,11 @@
 <h3>Fiche de frais du mois <?php echo $numMois."-".$numAnnee?> : </h3>
 
 <div class="encadre">
-    <p>Etat : <?php echo $libEtat ?> depuis le <?php echo $dateModif?> <br></p>
+    <p class="p">Etat : <?php echo $libEtat ?> depuis le <?php echo $dateModif?> <br></p>
         
         <!-- tableau des frais forfait -->
   	<table class="listeLegere">
-  	    <caption>Eléments forfaitisés </caption>
+            <caption class="caption">Eléments forfaitisés </caption>
             <!-- entete du tableau -->
             <tr>
         <?php
@@ -45,7 +45,7 @@
         
         <!-- tableau des frais hors forfait -->
   	<table class="listeLegere">
-            <caption>Descriptif des éléments hors forfait -<?php echo $nbJustificatifs ?> justificatifs reçus -</caption>
+            <caption class="caption">Descriptif des éléments hors forfait -<?php echo $nbJustificatifs ?> justificatifs reçus -</caption>
             <tr>
                 <th class="date">Date</th>
                 <th class="libelle">Libellé</th>

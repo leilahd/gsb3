@@ -1,27 +1,29 @@
 /* Styles des divisions principales de la page */
 body{
-  background-color: #77AADD;
-	background-image: url(imgs/FONDGLOBAL.jpg);
-	background-repeat: repeat-x;
+  background-color: #AAAAAA;
+  background-image: url(imgs/FONDGLOBAL.jpg);
+  background-repeat: repeat-x;
   margin:0% 0%;
   padding : 0.6em;
   font-family:"Trebuchet MS",Verdana,Geneva,Arial,Helvetica,sans-serif;
   font-size:0.8em;
+  
 }
 #page {
-  background-color:white;
+  background-color:#DCDCDC;
   width : 65%;
   margin : auto ;
-  border : 0.2em solid black;
-  padding : 0.1em;
+  border-radius: 10px;
+  
+  
 }
 #entete{
-  background-color:rgb(72,198,236);
-	color : #980101;
-	border: solid 0.1em #980101;
+        background-color:#1B1B1B;
+	color : #66A4CF;
+	border: solid 0.1em #1B1B1B;
 	height: 154px;
-	padding: 0em;
 	border-collapse: separate;
+        border-radius: 10px;
 }
 #pied{
   clear : both;
@@ -35,33 +37,107 @@ body{
 #menuGauche {
 	margin-top : 0.8em;
 	padding: 1em;
-	background-color: white;
-	color: rgb(0,85,227);
+	background-color: #DCDCDC;
+	color: #540101;
 	float: left;
 	width: 14%;
+        font-size: 16px;
 }
 
-#contenu{
-	border: none;
-	padding: 1.3em;
-	background-color: white;
-	border-left :  groove 0.8em #980101;
+#contenuCo{
+  border: none;
+  padding: 1.3em;
+  background-color: #DCDCDC;
   margin-top : 1.2em;
-	margin-left: 18%;
+  margin-left: 25%;
+  margin-right: 20%;
+  
 /* permet de fixer une hauteur mini sur les navigateurs modernes */
-  min-height:27em;
-/* pour obtenir le même effet sur IE, sachant que si le contenu dépasse, il
+  min-height:20em;
+/* pour obtenir le mï¿½me effet sur IE, sachant que si le contenu dï¿½passe, il
 "poussera" la hauteur en ne respectant pas la norme. On se joue de ses lacunes
 */
   height:27em;
 }
 
-/* pour rétablir le mauvais effet sur les nav. modernes */
+fieldset {
+    width-max: 100%;
+    display:block;
+    width: 400px;
+    height: 200px;
+    border: 3px outset #353535;
+    padding:2px;
+    padding-left: 30px;
+    padding-top: 15px;
+    overflow:hidden; 
+    
+}
+
+label {
+    width-max: 100%;
+    background:transparent none;
+    display: block;
+    width: 30%;
+    float: left;
+    padding-right: 1%;
+    padding-left: 20px;
+    text-align: left;
+    color:black;
+    font-size: 15px;
+}
+
+legend{
+    color: black;
+    font-size: 20px;
+}
+
+#sommaire {
+  border: none;
+  padding-bottom: 1em;
+  background-color: #DCDCDC;
+  margin-left: 30%;
+  margin-right: 20%;
+  font-size: 20px;
+  color: #66A4CF;
+}
+#ol{
+    list-style:none;
+    margin:0px;
+    padding:0px;
+    width:98%;
+    font-size: 1em;
+}
+
+a{
+  color:#6495ED;
+    display:block;
+    text-decoration:none;
+    width:100%;  
+    font-style: italic;
+}
+
+
+#contenu{
+  border: none;
+  padding: 1.3em;
+  background-color: #DCDCDC;
+  border-left :  groove 0.8em none;
+  margin-top : 1.2em;
+	margin-left: 18%;
+/* permet de fixer une hauteur mini sur les navigateurs modernes */
+  min-height:27em;
+/* pour obtenir le mï¿½me effet sur IE, sachant que si le contenu dï¿½passe, il
+"poussera" la hauteur en ne respectant pas la norme. On se joue de ses lacunes
+*/
+  height:27em;
+}
+
+/* pour rï¿½tablir le mauvais effet sur les nav. modernes */
 html>body #contenu{
   height:auto;
 }
 
-/* style à appliquer à la balise ul d'identifiant menulist */
+/* style ï¿½ appliquer ï¿½ la balise ul d'identifiant menulist */
 ul#menuList{
     list-style:none;
     margin:0px;
@@ -70,36 +146,34 @@ ul#menuList{
     font-size: 1em;
 }
 
-/* style à appliquer aux éléments de la balise ul d'identifiant menulist */
+/* style ï¿½ appliquer aux ï¿½lï¿½ments de la balise ul d'identifiant menulist */
 ul#menuList li {
     position:relative;
     margin:0px;
     padding:0px;
 }
 
-/* apparences des liens dans listes et sous-listes non numérotées */
+/* apparences des liens dans listes et sous-listes non numï¿½rotï¿½es */
 ul#menuList a {
-    color:rgb(0,85,227);
+    color:#F08080;
     display:block;
     text-decoration:none;
     width:100%;
 }
-ul#menuList a:hover {
-    background: rgb(0,85,227);
-    color: white;
-}
+
 
 #entete #logoGSB {
   float : left;
-  width : 238px;
+  width : 250px;
   height : 152px;
 }
 
 #entete h1 {
-  margin : 1em;
+  margin : 2em;
   margin-left:6em;
-  font-size : x-large;
+  font-size : xx-large;
   text-align:center;
+  font-style: oblique;
 }
 
 #contenu pre {
@@ -124,9 +198,12 @@ ul#menuList a:hover {
 /* Style des formulaires */
 .corpsForm {
   border : solid 0.1em #000;
-  border-bottom-width:1px;
-  margin-bottom : 0em;
-  width : 95%;
+  border-bottom: none;
+  width: 600px;
+  height: 35px;
+  margin-left: 40px;
+  background-color: #005070;
+  
 }
 .piedForm {
   border-bottom-width : 0.1em;
@@ -136,8 +213,23 @@ ul#menuList a:hover {
   border-style : solid;
   border-color : #000;
   text-align:right ;
-  width : 95%;
-  margin-top:0em;
+  width: 600px;
+  margin-top:-36px;
+  margin-left: 40px;
+  background-color: #005070;
+}
+
+.modif{
+  border : solid 0.1em #000;
+  border-bottom: none;
+  width: 450px;
+  height: 165px;
+  margin-left: 40px;
+  background-color: #005070;
+  
+}
+.lab{
+    color:white;
 }
 form {
   margin-bottom:1em;  
@@ -147,16 +239,19 @@ form {
   font-size:1.2em;
 }
 .corpsForm label{
-  float: left;
-  text-align:right;
-  width:33%;
-	margin: 0;
-	padding: 0 .5em 0 0;
-	line-height: 1.8;	
+  font-size: 17px;
+    text-align:right;
+   
+    width:33%;
+    margin-top: -6px;
+    padding: 0 .5em 0 0;
+    line-height: 1.8;	
+    color:white;
 }
 input, button, textarea, select{
   font-family:"Trebuchet MS", sans-serif;
   font-size : 1em;
+ 
 }
 button{
   width : 60px;
@@ -170,7 +265,7 @@ input:hover, textarea:hover, select:hover{
 }
 
 /*  Le texte des messages d'erreur est de couleur rose sur fond ocre et de 
-taille de caractères légèrement supérieure à la normale */
+taille de caractï¿½res lï¿½gï¿½rement supï¿½rieure ï¿½ la normale */
 .erreur{ 
    background-color:rgb(237,210,229);
    color:rgb(203,28,128);
@@ -189,8 +284,24 @@ taille de caractères légèrement supérieure à la normale */
 }
 
 .encadre {
-  border : solid 0.1em #000;
-  width : 95%;
+   border-bottom-width : 0.1em;
+  border-left-width : 0.1em;
+  border-right-width : 0.1em;
+
+  border-style : solid;
+  border-color : #000;
+
+  width: 600px;
+ 
+  margin-left: 40px;
+  background-color: #005070;
+}
+.p{
+    color: white;
+    font-size: 15px;
+}
+.caption{
+    color:white;
 }
 /* Style pour les liens de la page principale */
 #contenu .corpsTexte {
@@ -225,7 +336,7 @@ taille de caractères légèrement supérieure à la normale */
    border-collapse : collapse;
 }
 
-/* Style pour les lignes d'en-tête des tableaux */
+/* Style pour les lignes d'en-tï¿½te des tableaux */
 #contenu th {  
    background-color:#77AADD;
    height:21px;
@@ -241,14 +352,16 @@ taille de caractères légèrement supérieure à la normale */
 }
 
 #contenu h3 {
-    font-size : 1.2em;
+    font-size : 1.3em;
+    color: #C00060;
+    font-style: italic;
 }
 table.listeLegere {
 /*    width:80%;*/
     margin-bottom : 0.5em;
 }
 
-/* Tableaux quadrillés utilisés pour l'affichage de listes avec contenu léger*/ 
+/* Tableaux quadrillï¿½s utilisï¿½s pour l'affichage de listes avec contenu lï¿½ger*/ 
 table.listeLegere th, table.listeLegere td {
   border : dotted rgb(178,207,81) 0.1em;
   padding:0.5em;
@@ -278,15 +391,17 @@ table.listeLegere th.libelle{
 }
 
 #contenu h2 {
-	font-family: Verdana, Arial, Helvetica, sans-serif;
-	font-size: 14px;
-	font-weight: bold;
-	color: #1D2941;
-	text-decoration: none;
-	border : 1px solid #6988BE;
-	padding-left: 25px;
-	background-color: #E9F1FE;
-  height : 28px;
+    font-family: Verdana, Arial, Helvetica, sans-serif;
+    font-size: 16px;
+    font-weight: bold;
+    color: #540101;
+    text-align: center;
+    text-decoration: none;
+    border : 1px solid #66A4C3;
+    padding-left: 25px;
+    background-color: #66A4C3;
+    height : 28px;
+    width: 650px;
 }
 
 #contenu img {
