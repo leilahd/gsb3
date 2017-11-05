@@ -71,6 +71,17 @@ function dateAnglaisVersFrancais($maDate){
    return $date;
 }
 /**
+ * Transforme un mois au format format anglais aaaa-mm vers le format français mm/aaaa 
+ 
+ * @param $mois au format  aaaa-mm
+ * @return le mois au format français mm/aaaa
+*/
+function moisAnglaisVersFrancais($mois){
+    $numAnnee = substr($mois, 0, 4);
+    $numMois = substr($mois, 4, 2);
+    return $numMois."/".$numAnnee;
+}
+/**
  * retourne le mois au format aaaamm selon le jour dans le mois
  
  * @param $date au format  jj/mm/aaaa

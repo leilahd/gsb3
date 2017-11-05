@@ -251,6 +251,7 @@ form {
 input, button, textarea, select{
   font-family:"Trebuchet MS", sans-serif;
   font-size : 1em;
+  
  
 }
 button{
@@ -334,6 +335,17 @@ taille de caract�res l�g�rement sup�rieure � la normale */
    margin-right : auto ;
    margin-left:0.3em;
    border-collapse : collapse;
+   text-align: center;
+   
+}
+#contenu table.suivie{
+    background-color:#FFF;
+   border : 0.1em solid #777777;
+   color:black;
+   margin-right : auto ;
+   margin-left:-1em;
+   border-collapse : collapse;
+   text-align: center;
 }
 
 /* Style pour les lignes d'en-t�te des tableaux */
@@ -345,6 +357,7 @@ taille de caract�res l�g�rement sup�rieure � la normale */
    font-weight:bold;
    border-bottom:0.1em solid #777777;
    font-size:1.1em;
+   text-align: center;
 } 
 
 #contenu td {
@@ -360,6 +373,7 @@ table.listeLegere {
 /*    width:80%;*/
     margin-bottom : 0.5em;
 }
+
 
 /* Tableaux quadrill�s utilis�s pour l'affichage de listes avec contenu l�ger*/ 
 table.listeLegere th, table.listeLegere td {

@@ -4,8 +4,8 @@
     <p class="p">Etat : <?php echo $libEtat ?> depuis le <?php echo $dateModif?> <br></p>
         
         <!-- tableau des frais forfait -->
-  	<table class="listeLegere">
-            <caption class="caption">Eléments forfaitisés </caption>
+  	<table class="suivi">
+            
             <!-- entete du tableau -->
             <tr>
         <?php
@@ -31,8 +31,8 @@
                 }
 	?>
             </tr>
-        </table>
-        <meta http-equiv="refresh" content="5000">
+        </table></br>
+      
     
         <!-- formulaire pour modification des elements -->
         <form action="index.php?uc=validerFrais&action=modifier" method="POST">

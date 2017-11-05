@@ -301,13 +301,13 @@ class PdoGsb{
 		$lesMois =array();
 		$laLigne = $res->fetch();
 		while($laLigne != null)	{
-			$mois = $laLigne['mois'];
-			$numAnnee =substr( $mois,0,4);
-			$numMois =substr( $mois,4,2);
-			$lesMois["$mois"]=array(
-		     "mois"=>"$mois",
+                    $mois = $laLigne['mois'];
+                    $numAnnee =substr( $mois,0,4);
+                    $numMois =substr( $mois,4,2);
+                    $lesMois["$mois"]=array(
+		    "mois"=>"$mois",
 		    "numAnnee"  => "$numAnnee",
-			"numMois"  => "$numMois"
+                    "numMois"  => "$numMois"
              );
 			$laLigne = $res->fetch(); 		
 		}
@@ -322,15 +322,17 @@ class PdoGsb{
  * @return un tableau associatif de clé un mois -aaaamm- et de valeurs l'année et le mois correspondant
  */
         public function getLesVisiteurs($unMois){
-		$req = "SELECT visiteur.id,visiteur.nom, visiteur.prenom  FROM fichefrais, visiteur WHERE fichefrais.idvisiteur = visiteur.id AND fichefrais.idEtat = 'CL' AND mois=".$unMois."";
+		$req = "SELECT visiteur.id,visiteur.nom, visiteur.prenom  FROM fichefrais, "
+                        . "visiteur WHERE fichefrais.idvisiteur = visiteur.id AND "
+                        . "fichefrais.idEtat = 'CL' AND mois=".$unMois."";
 		$res = PdoGsb::$monPdo->query($req);
 		$lesVisiteurs =array();
 		$laLigne = $res->fetch();
 		while($laLigne != null)	{
                     $id = $laLigne['id'];
-			$nom = $laLigne['nom'];
-			$prenom = $laLigne['prenom'];
-			$lesVisiteurs["$nom"]=array(
+                    $nom = $laLigne['nom'];
+                    $prenom = $laLigne['prenom'];
+                    $lesVisiteurs["$nom"]=array(
                      "id"=>"$id",
 		     "nom"=>"$nom",
 		     "prenom"  => "$prenom",
@@ -356,6 +358,23 @@ class PdoGsb{
 		$laLigne = $res->fetch();
 		return $laLigne;
 	}
+        
+/**
+ * retourne les informations d'un visiteur qui possede des fiche de frais validées 'VA'
+ */
+        
+        public function getLesFichesFrais() {
+               $requete_prepare = PdoGSB::$monPdo->prepare("SELECT nom,prenom,mois,nbJustificatifs,montantValide,dateModif,idEtat,idVisiteur
+                                                     FROM Visiteur inner join fichefrais
+                                                     on Visiteur.id = fichefrais.idVisiteur
+                                                     where idEtat='VA'
+                                                     order by nom ASC");
+        $requete_prepare->execute();
+        return $requete_prepare->fetchAll(PDO::FETCH_ASSOC);
+        
+      }
+        
+        
 /**
  * Modifie l'état et la date de modification d'une fiche de frais
  
