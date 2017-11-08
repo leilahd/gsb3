@@ -8,35 +8,42 @@
 include("vues/v_sommaireComptable2.php");
 $idComptable = $_SESSION['idComptable'];
 $mois = getMois(date("d/m/Y"));
-$numAnnee =substr( $mois,0,4);
-$numMois =substr( $mois,4,2);
 $action = $_REQUEST['action'];
 switch($action){
     
     case'suiviPaiement':{
-        //etat='RB'
+        //montre les fiche qui ont été validés: etat='VA'
         $lesFiches=$pdo->getLesFichesFrais();
         include ('vues/v_suiviPaiement.php');
+    break;
     }
     
-    case'suivrePaiement':{
-        $mois= $_REQUEST['moisChoisi'];
-        $moisChoisi=$mois;
-        $idVisiteur= $_REQUEST['idVisiteurChoisi'];
-        $idVisiteurChoisi=$idVisiteur;
-        $lesFraisHorsForfait = $pdo->getLesFraisHorsForfait($idVisiteur,$mois);
-        $lesFraisForfait= $pdo->getLesFraisForfait($idVisiteur,$mois);
-        $lesInfosFicheFrais = $pdo->getLesInfosFicheFrais($idVisiteur,$mois);
-        $numAnnee =substr( $mois,0,4);
-        $numMois =substr( $mois,4,2);
-        $libEtat = $lesInfosFicheFrais['libEtat'];
-        $montantValide = $lesInfosFicheFrais['montantValide'];
-        $nbJustificatifs = $lesInfosFicheFrais['nbJustificatifs'];
-        $dateModif =  $lesInfosFicheFrais['dateModif'];
+    case'suivreLePaiement':{
+        foreach ($_REQUEST['id'] as $idVisiteur) {
+        $id = substr($idVisiteur, 0, strpos($idVisiteur, '-'));
+        $mois = substr(strstr($idVisiteur, '-'), strlen('-'));}
+        $lesFraisHorsForfait = $pdo->getLesFraisHorsForfait($id,$mois);
+        $lesFraisForfait= $pdo->getLesFraisForfait($id,$mois);
+        $uneFiche = $pdo->getLesInfosFicheFrais($id,$mois);
+        $nom = $uneFiche['nom'];
+        $prenom = $uneFiche['prenom'];
+        $libEtat = $uneFiche['libEtat'];
+        $montantValide = $uneFiche['montantValide'];
+        $nbJustificatifs = $uneFiche['nbJustificatifs'];
+        $dateModif =  $uneFiche['dateModif'];
         $dateModif =  dateAnglaisVersFrancais($dateModif);
         include("vues/v_suivrePaiement.php");
-        
+    break;
     }
     
+    case'miseEnPaiement':{
+        $leVisiteur=$_REQUEST['idVisiteur'];
+        $idVisiteur=$leVisiteur;
+        $leMois=$_REQUEST['mois'];
+        $mois=$leMois;
+        $pdo->majEtatFicheFrais($idVisiteur,$mois,'RB');
+        $pdo->getLesInfosFicheFrais($idVisiteur,$mois);
+        include("vues/v_rembourser.php");
+    }
 }
 ?>

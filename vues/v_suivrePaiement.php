@@ -1,8 +1,11 @@
-<h3>Fiche de frais de <?php echo($idVisiteurChoisi)?> du mois <?php echo moisAnglaisVersFrancais($moisChoisi) ?> : </h3>
+<div id="contenu">
+<h3>Fiche de frais de <?php echo($prenom)?> <?php echo($nom)?> du mois <?php echo moisAnglaisVersFrancais($mois) ?> : </h3>
 
-<div class="encadre">        
+<div class="encadre"> 
+    <p class="p">Etat : Validée depuis le <?php echo $dateModif?> <br></p>
         <!-- tableau des frais forfait -->
   	<table class="suivi">
+            
             
             <!-- entete du tableau -->
             <tr>
@@ -60,11 +63,13 @@
         </table>
         
         
+        
+        
     
         <form action="index.php?uc=suiviPaiement&action=miseEnPaiement" method="POST">
             <input type="hidden" name="idVisiteur" value="<?php echo $idVisiteur ?>" />
             <input type="hidden" name="mois" value="<?php echo $mois ?>" />
-            <input type="submit" value="Mise en Paiement" />
+            <input type="submit" value="Mise en paiement" />
         </form> 
     </div>
 </div>

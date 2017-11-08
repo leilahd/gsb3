@@ -84,7 +84,7 @@
                     <input type="hidden" name="idVisiteur" value="<?php echo $visiteurASelectionner ?>" />
                     <input type="hidden" name="unMois" value="<?php echo $moisASelectionner ?>" />
                     <td><input type="submit" value="Refuser" /></td>
-</form>
+                </form>
             <?php
             }
 	?>

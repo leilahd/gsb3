@@ -7,6 +7,6 @@
         </p>
         
         
-        <a href="index.php?uc=validerFrais&action=selectionnerMois">Valider d'autre fiche</a>
+        <a href="index.php?uc=validerFrais&action=selectionnerMois">Valider d'autre fiches</a>
     </div>
 </div>
