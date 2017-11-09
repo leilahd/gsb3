@@ -37,12 +37,10 @@ switch($action){
     }
     
     case'miseEnPaiement':{
-        $leVisiteur=$_REQUEST['idVisiteur'];
-        $idVisiteur=$leVisiteur;
+       
+        $leVisiteur=$_REQUEST['idV'];
         $leMois=$_REQUEST['mois'];
-        $mois=$leMois;
-        $pdo->majEtatFicheFrais($idVisiteur,$mois,'RB');
-        $pdo->getLesInfosFicheFrais($idVisiteur,$mois);
+        $pdo->majEtatFicheFraisSuivi($leVisiteur,$leMois,'RB');
         include("vues/v_rembourser.php");
     }
 }

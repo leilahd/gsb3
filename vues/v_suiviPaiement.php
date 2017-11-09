@@ -1,8 +1,7 @@
 <div id="contenu">
     <h3>Fiche de frais en attente de paiement </h3>
    <form action="index.php?uc=suiviPaiement&action=suivreLePaiement" method="POST">
-   <input type="hidden" name="idVisiteur" value="<?php echo $idVisiteur ?>" />
-   <input type="hidden" name="mois" value="<?php echo $mois ?>" />
+   
     <div>
         <table class="suivie">
             
@@ -29,7 +28,7 @@
                 $nbJustificatifs =$uneFiche['nbJustificatifs'];
                 $montant = $uneFiche['montantValide'];
                 $dateModif =$uneFiche['dateModif'];
-                $idVisiteur = $uneFiche['idVisiteur']
+                $idVisiteur =$idV= $uneFiche['idVisiteur']
             ?>
             <tr>
                 <!--checkbox premet d'avoir des case a cocher-->
@@ -43,7 +42,7 @@
                 
                 
                 <form action="index.php?uc=suiviPaiement&action=suivreLePaiement" method="POST">
-                    <input type="hidden" name="idVisiteur" value="<?php echo $idVisiteur ?>" />
+                    <input type="hidden" name="idV" value="<?php echo $idV ?>" />
                     <input type="hidden" name="mois" value="<?php echo $mois ?>" />
                     <td><a target="_blank" href="index.php?uc=suiviPaiement&action=genererPDF&i=<?php echo($idVisiteur) ?>&m=<?php echo($mois) ?>"></span></button><img src='./images/PDF_icon.jpg'></a></td>
                     <td><input type="submit" value="Suivre" /></td> 

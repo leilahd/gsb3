@@ -10,7 +10,7 @@
         <label for="lstVisiteurs" accesskey="n">Visiteurs : </label>
         <select id="lstVisiteurs" name="lstVisiteur">
             <?php
-                        echo " Bonjour";
+                        
 			foreach ($lesVisiteurs as $unVisiteur)
 			{
                             $id = $unVisiteur['id'];

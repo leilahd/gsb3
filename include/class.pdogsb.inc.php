@@ -343,7 +343,9 @@ class PdoGsb{
 		return $lesVisiteurs;
 	}
         
-/**
+   
+
+        /**
  * Retourne les informations d'une fiche de frais d'un visiteur pour un mois donné
  
  * @param $idVisiteur 
@@ -393,6 +395,18 @@ class PdoGsb{
 		PdoGsb::$monPdo->exec($req);
 	}
         
+        public function majEtatFicheFraisSuivi($idVisiteur,$mois,$etat){
+		$req = "update fichefrais set idEtat = '$etat', dateModif = now() 
+		where fichefrais.idVisiteur ='$idVisiteur' and fichefrais.mois = '$mois'";
+		PdoGsb::$monPdo->exec($req);
+	}
+        
+       /** public function getLeVisiteur($idVisiteur){
+		$req = "SELECT nom,prenom,mois,dateModif
+                        FROM Visiteur inner join fichefrais
+                        on Visiteur.id = fichefrais.idVisiteur where fichefrais.idvisiteur ='$idVisiteur'";
+		PdoGsb::$monPdo->exec($req);
+	}**/
         
         
                 function reportDFraisHorsForfait($idFrais, $dernierMois)

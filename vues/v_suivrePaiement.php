@@ -1,4 +1,5 @@
 <div id="contenu">
+
 <h3>Fiche de frais de <?php echo($prenom)?> <?php echo($nom)?> du mois <?php echo moisAnglaisVersFrancais($mois) ?> : </h3>
 
 <div class="encadre"> 
@@ -6,6 +7,7 @@
         <!-- tableau des frais forfait -->
   	<table class="suivi">
             
+          
             
             <!-- entete du tableau -->
             <tr>
@@ -62,13 +64,10 @@
 	?>
         </table>
         
-        
-        
-        
-    
         <form action="index.php?uc=suiviPaiement&action=miseEnPaiement" method="POST">
-            <input type="hidden" name="idVisiteur" value="<?php echo $idVisiteur ?>" />
+            <input type="hidden" name="idV" value="<?php echo $idV=$_REQUEST['idV'] ?>" />
             <input type="hidden" name="mois" value="<?php echo $mois ?>" />
+            
             <input type="submit" value="Mise en paiement" />
         </form> 
     </div>
